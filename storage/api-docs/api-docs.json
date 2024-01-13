@@ -1,0 +1,275 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ExampleSMS",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Login",
+                "operationId": "44212a9096e4b09358281e9ec8a0701d",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User's email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User's password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User logged successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register a new user",
+                "operationId": "a718f172ff3ac464d723835815f8fb57",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "User's name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User's email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "User's password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User registered successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout",
+                "operationId": "79854151e609bd20032aa5aa4d5a35c0",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Token",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Logout successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                }
+            }
+        },
+        "/api/refresh": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh Auth Token",
+                "operationId": "7d5da2870d3eba95cdd67878ab20da3a",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Token",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "User logged successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                }
+            }
+        },
+        "/api/sms/sendSms": {
+            "post": {
+                "tags": [
+                    "SMS"
+                ],
+                "summary": "Send a new SMS",
+                "operationId": "de81859a0f1dfbeeee5b5cadd4b775c8",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Number to Send Message",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "message",
+                        "in": "query",
+                        "description": "Message Content",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Message sent successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/sms/getSmsByFilter": {
+            "get": {
+                "tags": [
+                    "SMS"
+                ],
+                "summary": "SMS Filter by Date",
+                "operationId": "396b671ac66354a508a05dcfa2c6d57f",
+                "parameters": [
+                    {
+                        "name": "start_date",
+                        "in": "path",
+                        "description": "Start Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "01/01/2023"
+                        }
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "path",
+                        "description": "End Date",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "01/01/2024"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Message sent successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/sms/getSmsById": {
+            "get": {
+                "tags": [
+                    "SMS"
+                ],
+                "summary": "Get SMS by ID",
+                "operationId": "566bdc51b76a4999c2d167b53718b647",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "SMS Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "01/01/2023"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Message sent successfully"
+                    },
+                    "422": {
+                        "description": "Validation errors"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
