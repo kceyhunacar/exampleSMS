@@ -8,8 +8,9 @@ Install Dependencies
 
 Install project dependencies by running the following command in the terminal:
 
+```
 composer install
-
+```
 Set Environment Variables
 
 Create the .env file and set the necessary environment variables, including important information such as database connection details.
@@ -17,16 +18,17 @@ Create the .env file and set the necessary environment variables, including impo
 Database Migrations and Seeding
 
 Create the database and populate it with sample data by running the following commands sequentially:
- 
+ ```
 php artisan migrate
 php artisan db:seed
-  
+  ```
 Start the Server
 
 Start the project with Laravel's built-in server using the following command:
- 
+ ```
 php artisan serve
-The project should now be running at http://localhost:8000.
+```
+ 
 
 Using Swagger
 
@@ -35,14 +37,14 @@ Access Swagger documentation by visiting http://localhost:8000/api/documentation
 Admin Panel
 
 To use the admin panel within the project, go to http://localhost:8000/admin/login in your browser and log in.
-
+```
 Admin User E-mail: admin@admin.com
 Admin User Password: 123123
-
+```
 SMS Sending Test
 
 This project uses Laravel notification system for SMS sending. You can follow these steps to test the SMS sending process:
- 
+ ```
 php artisan test
-
+```
  
