@@ -111,7 +111,7 @@ $id = Auth::user()->id;
      *         in="path",
      *         description="SMS Id",
      *         required=true,
-     *         @OA\Schema( type="string" ,example="01/01/2023")
+     *         @OA\Schema( type="number")
      *     ),
      *     @OA\Response(response="200", description="Success"),
      *     @OA\Response(response="404", description="Not Found")
