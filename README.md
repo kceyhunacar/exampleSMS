@@ -21,11 +21,13 @@ Create the database and populate it with sample data by running the following co
  ```
 php artisan migrate
 php artisan db:seed
+php artisan jwt:secret
   ```
 Start the Server
 
 Start the project with Laravel's built-in server using the following command:
- ```
+
+```
 php artisan serve
 ```
  
@@ -44,7 +46,19 @@ Admin User Password: 123123
 SMS Sending Test
 
 This project uses Laravel notification system for SMS sending. You can follow these steps to test the SMS sending process:
+
+
+Add lines to your .env file
  ```
+DB_CONNECTION_SECOND=test
+DB_HOST_SECOND=mysql
+DB_PORT_SECOND=3306
+DB_DATABASE_SECOND=sms
+DB_USERNAME_SECOND=root
+DB_PASSWORD_SECOND=
+```
+Use this command for testing
+```
 php artisan test
 ```
  
